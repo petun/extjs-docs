@@ -15,6 +15,7 @@ this.CitiesStore.DataBind();
 <ext:ComboBox 
         ID="ComboBox2" 
         runat="server" 
+        MultiSelect="true" // FIXIT IN CODE - надо или не надо выделение нескольких элементов
         TypeAhead="true" 
         QueryMode="Local"
         ForceSelection="true" 
