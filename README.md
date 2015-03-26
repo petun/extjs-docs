@@ -189,7 +189,7 @@ App.TFDEPARTMENT.clearValue();
                 <Store>
                     <ext:Store ID="Store3" runat="server" AutoLoad="false">
                         <Proxy>
-                            <ext:JsonPProxy Url="http://sys00133.d0.vsw.ru:4444/Department/Search/">                                 
+                            <ext:JsonPProxy Url="http://example:4444/Department/Search/">                                 
                                  <Reader>
                                 <ext:JsonReader Root="departments" TotalProperty="totalCount" />
                             </Reader>                                
@@ -227,7 +227,7 @@ App.TFDEPARTMENT.clearValue();
                         <Store>
                         <ext:TreeStore ID="TreeStore1" runat="server" AutoSync="True">
                             <Proxy>
-                                <ext:JsonPProxy Url="http://sys00133.d0.vsw.ru:4444/Department/Tree/?includeIds=50210774&includeIds=50192392&includeIds=50009788&includeIds=50009842&includeIds=50009868&includeIds=50048816&includeIds=50049126&includeIds=50052367&includeIds=50009193&includeIds=50009194&includeIds=50068971&includeIds=50001260&includeIds=50009441&includeIds=50009582&includeIds=50238822&includeIds=50009628&includeIds=50009124&includeIds=50009544&includeIds=50009662">
+                                <ext:JsonPProxy Url="http://example:4444/Department/Tree/?includeIds=50210774&includeIds=50192392&includeIds=50009788&includeIds=50009842&includeIds=50009868&includeIds=50048816&includeIds=50049126&includeIds=50052367&includeIds=50009193&includeIds=50009194&includeIds=50068971&includeIds=50001260&includeIds=50009441&includeIds=50009582&includeIds=50238822&includeIds=50009628&includeIds=50009124&includeIds=50009544&includeIds=50009662">
                                     <Reader>
                                         <ext:JsonReader Root="departments" TotalProperty="totalCount" IDProperty="value" />
                                     </Reader>                                
@@ -292,7 +292,7 @@ App.TFDEPARTMENT.clearValue();
             <Store>
                 <ext:Store ID="Store4" runat="server" AutoLoad="false">
                     <Proxy>
-                        <ext:JsonPProxy Url="http://sys00133.d0.vsw.ru:4444/Person/Search/">
+                        <ext:JsonPProxy Url="http://example:4444/Person/Search/">
                             <Reader>
                                 <ext:JsonReader Root="persons" TotalProperty="totalCount" />
                             </Reader>
