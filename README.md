@@ -316,3 +316,5 @@ App.TFDEPARTMENT.clearValue();
     </ext:ComboBox>
 ```
 
+### GridView - основы работы
+
