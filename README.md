@@ -189,7 +189,7 @@ App.TFDEPARTMENT.clearValue();
                 <Store>
                     <ext:Store ID="Store3" runat="server" AutoLoad="false">
                         <Proxy>
-                            <ext:JsonPProxy Url="http://sys00133.d0.vsw.ru:4444/Department/Search/">                                 
+                            <ext:JsonPProxy Url="http://example:4444/Department/Search/">                                 
                                  <Reader>
                                 <ext:JsonReader Root="departments" TotalProperty="totalCount" />
                             </Reader>                                
@@ -227,7 +227,7 @@ App.TFDEPARTMENT.clearValue();
                         <Store>
                         <ext:TreeStore ID="TreeStore1" runat="server" AutoSync="True">
                             <Proxy>
-                                <ext:JsonPProxy Url="http://sys00133.d0.vsw.ru:4444/Department/Tree/?includeIds=50210774&includeIds=50192392&includeIds=50009788&includeIds=50009842&includeIds=50009868&includeIds=50048816&includeIds=50049126&includeIds=50052367&includeIds=50009193&includeIds=50009194&includeIds=50068971&includeIds=50001260&includeIds=50009441&includeIds=50009582&includeIds=50238822&includeIds=50009628&includeIds=50009124&includeIds=50009544&includeIds=50009662">
+                                <ext:JsonPProxy Url="http://example:4444/Department/Tree/?includeIds=50210774&includeIds=50192392&includeIds=50009788&includeIds=50009842&includeIds=50009868&includeIds=50048816&includeIds=50049126&includeIds=50052367&includeIds=50009193&includeIds=50009194&includeIds=50068971&includeIds=50001260&includeIds=50009441&includeIds=50009582&includeIds=50238822&includeIds=50009628&includeIds=50009124&includeIds=50009544&includeIds=50009662">
                                     <Reader>
                                         <ext:JsonReader Root="departments" TotalProperty="totalCount" IDProperty="value" />
                                     </Reader>                                
@@ -264,4 +264,55 @@ App.TFDEPARTMENT.clearValue();
                     </ext:TreePanel>   
                 </Items>
             </ext:Window>
-```            
+```      
+
+Выбор сотрудника
+```asp
+<ext:ComboBox ID="TrFOtvet"
+                      FieldLabel="ФИО"
+                      runat="server"
+                      DisplayField="FIO"
+                      ValueField="PERSONNUMBER"
+                      TypeAhead="false"
+                      PageSize="10"
+                      HideBaseTrigger="true"
+                      Note="Фамилия или табельный сотрудника"
+                      MinChars="3"
+                      TriggerAction="Query">
+            <ListConfig LoadingText="Поиск сотрудников...">
+                <ItemTpl ID="ItemTpl2" runat="server">
+                    <Html>
+                        <div class="search-item">
+                            <h4 style="margin: 0;">{FIO}</h4>
+                            <p style="margin: 0; line-height: 100%;"><small>{PERSONRANKNAME}, {DEPARTMENTNAME}</small></p>
+                        </div>
+                    </Html>
+                </ItemTpl>
+            </ListConfig>
+            <Store>
+                <ext:Store ID="Store4" runat="server" AutoLoad="false">
+                    <Proxy>
+                        <ext:JsonPProxy Url="http://example:4444/Person/Search/">
+                            <Reader>
+                                <ext:JsonReader Root="persons" TotalProperty="totalCount" />
+                            </Reader>
+                        </ext:JsonPProxy>
+                    </Proxy>
+                    <Model>
+                        <ext:Model ID="Model17" runat="server">
+                            <Fields>
+                                <ext:ModelField Name="PERSONNUMBER" />
+                                <ext:ModelField Name="FIO" />
+                                <ext:ModelField Name="PHOTO" />
+                                <ext:ModelField Name="PERSONRANKNAME" />
+                                <ext:ModelField Name="PERSONEMAIL" />
+                                <ext:ModelField Name="PERSONPHONE" />
+                                <ext:ModelField Name="DEPARTMENTNAME" />
+                            </Fields>
+                        </ext:Model>
+                    </Model>
+                </ext:Store>
+        </Store>
+    </ext:ComboBox>
+```
+
