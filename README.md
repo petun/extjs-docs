@@ -318,3 +318,18 @@ App.TFDEPARTMENT.clearValue();
 
 ### GridView - основы работы
 
+
+### Маска для текстовых полей
+Пример для ввода числовых значений и обазательно для заполнения
+```asp
+<ext:TextField
+	ID="Action"
+	runat="server"
+        Name="actionNumber"
+        FieldLabel="Номер мероприятия"
+        AllowBlank="False"
+        Width="450"
+        MaskRe="/[0-9.]/">
+</ext:TextField>
+```                
+
