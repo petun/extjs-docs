@@ -331,5 +331,13 @@ App.TFDEPARTMENT.clearValue();
         Width="450"
         MaskRe="/[0-9.]/">
 </ext:TextField>
-```                
+```   
+
+```
+<ext:TextField ID="txtSource" Text="" FieldLabel="Номер подразделения источника">
+	<Plugins>
+        	<ext:InputMask ID="InputMask1" runat="server" Mask="99999999" />
+        </Plugins>
+</ext:TextField>
+```
 
