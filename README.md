@@ -333,7 +333,7 @@ App.TFDEPARTMENT.clearValue();
 </ext:TextField>
 ```   
 
-```
+```asp
 <ext:TextField ID="txtSource" Text="" FieldLabel="Номер подразделения источника">
 	<Plugins>
         	<ext:InputMask ID="InputMask1" runat="server" Mask="99999999" />
