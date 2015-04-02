@@ -341,3 +341,14 @@ App.TFDEPARTMENT.clearValue();
 </ext:TextField>
 ```
 
+### Message Box Icons
+```asp
+Ext.Net.X.Msg.Show(new MessageBoxConfig
+                        {
+                            Title = "Message",
+                            Message = "Update Success.",
+                            Buttons = MessageBox.Button.OK,
+                            Icon = MessageBox.Icon.INFO
+                        });
+
+```
