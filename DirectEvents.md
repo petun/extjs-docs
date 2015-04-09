@@ -1,15 +1,20 @@
 ### Direct Events
 
 ```asp
-<ext:Button runat="server" Text="Click Me">
-	<DirectEvents>
-		<Click OnEvent="Button_Click">
-			<ExtraParams>
-				<ext:Parameter Name="Item" Value="My param" />
-			</ExtraParams>
-			<EventMask ShowMask="true" />
-		</Click>
-	</DirectEvents>
+<ext:Button runat="server" Text="Save">
+    <DirectEvents>
+        <Click OnEvent="SaveData"
+               Before="return #{FormPanel1}.isValid();">
+            <ExtraParams>
+                <ext:Parameter
+                        Name="values"
+                        Value="#{FormPanel1}.getForm().getValues()"
+                        Mode="Raw"
+                        Encode="true"
+                        />
+            </ExtraParams>
+        </Click>
+    </DirectEvents>
 </ext:Button>
 ```
 
