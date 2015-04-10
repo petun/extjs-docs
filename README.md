@@ -78,6 +78,10 @@ StorePerson.DataBind();
 </Items>
 ```
 
+```asp
+  WORK_TYPEID.SelectedItem.Value = dr[12].ToString();
+```
+
 Свой шаблон на выводе:
 
 ```asp
