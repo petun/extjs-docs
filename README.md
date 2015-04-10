@@ -78,9 +78,12 @@ StorePerson.DataBind();
 </Items>
 ```
 
+Если используются <Items>, выбрать элемент можно вот так:
 ```asp
-  WORK_TYPEID.SelectedItem.Value = dr[12].ToString();
+  ComboBox.SelectedItem.Value = "BR";
 ```
+
+Подробно по вставке и удалению по ссылке: http://examples2.ext.net/#/Form/ComboBox/Items_Actions/
 
 Свой шаблон на выводе:
 
@@ -356,3 +359,34 @@ Ext.Net.X.Msg.Show(new MessageBoxConfig
                         });
 
 ```
+
+
+
+### Windows
+<ext:Window
+        runat="server"
+        Width="150"
+        Height="150"
+        MinWidth="150"
+        Title="Window"
+        BodyPadding="5"
+        Html="Click Submit for Confirmation Msg."
+        Collapsible="true"
+        X="550"
+        Y="185">
+    <TopBar>
+        <ext:Toolbar runat="server">
+            <Items>
+                <ext:Button runat="server" Text="Toolbar" />
+            </Items>
+        </ext:Toolbar>
+    </TopBar>
+    <Buttons>
+        <ext:Button
+                ID="Button1"
+                runat="server"
+                Text="Submit"
+                Icon="Accept"
+                OnDirectClick="Button1_Click" />
+    </Buttons>
+</ext:Window>
