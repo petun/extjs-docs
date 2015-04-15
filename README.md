@@ -107,6 +107,15 @@ this.ComboBox1.Items.Insert(0, new Ext.Net.ListItem("None", "-"));
 this.ComboBox1.SelectedItems.Add(new Ext.Net.ListItem("-"));
 ```
 
+Внимание, при добавлении из кода есть два рабочих вариант, оба работают при разных условиях
+```asp
+// до того, как combobox создался.. добавляем так:
+ManufactureID.Items.Insert(0, new Ext.Net.ListItem("АО " + @"""ВМЗ""", "50009124"));
+
+// этот код работает уже потом, когда элемент проинициализирован. На Direct Events.
+ManufactureID.AddItem(FillDepartment(DepID, "SHORTNAME"), DepID);
+```
+
 Добавление элементов из клиента
 ```asp
 <ext:Button runat="server" Text="Insert: client side">
