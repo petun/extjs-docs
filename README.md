@@ -78,6 +78,13 @@ StorePerson.DataBind();
 </Items>
 ```
 
+Если используются <Items>, выбрать элемент можно вот так:
+```asp
+  ComboBox.SelectedItem.Value = "BR";
+```
+
+Подробно по вставке и удалению по ссылке: http://examples2.ext.net/#/Form/ComboBox/Items_Actions/
+
 Свой шаблон на выводе:
 
 ```asp
@@ -98,6 +105,15 @@ StorePerson.DataBind();
 //Please note that inner items will be above store's items
 this.ComboBox1.Items.Insert(0, new Ext.Net.ListItem("None", "-"));
 this.ComboBox1.SelectedItems.Add(new Ext.Net.ListItem("-"));
+```
+
+Внимание, при добавлении из кода есть два рабочих вариант, оба работают при разных условиях
+```asp
+// до того, как combobox создался.. добавляем так:
+ManufactureID.Items.Insert(0, new Ext.Net.ListItem("АО " + @"""ВМЗ""", "50009124"));
+
+// этот код работает уже потом, когда элемент проинициализирован. На Direct Events.
+ManufactureID.AddItem(FillDepartment(DepID, "SHORTNAME"), DepID);
 ```
 
 Добавление элементов из клиента
@@ -331,5 +347,55 @@ App.TFDEPARTMENT.clearValue();
         Width="450"
         MaskRe="/[0-9.]/">
 </ext:TextField>
-```                
+```   
 
+```asp
+<ext:TextField ID="txtSource" Text="" FieldLabel="Номер подразделения источника">
+	<Plugins>
+        	<ext:InputMask ID="InputMask1" runat="server" Mask="99999999" />
+        </Plugins>
+</ext:TextField>
+```
+
+### Message Box Icons
+```asp
+Ext.Net.X.Msg.Show(new MessageBoxConfig
+                        {
+                            Title = "Message",
+                            Message = "Update Success.",
+                            Buttons = MessageBox.Button.OK,
+                            Icon = MessageBox.Icon.INFO
+                        });
+
+```
+
+
+
+### Windows
+<ext:Window
+        runat="server"
+        Width="150"
+        Height="150"
+        MinWidth="150"
+        Title="Window"
+        BodyPadding="5"
+        Html="Click Submit for Confirmation Msg."
+        Collapsible="true"
+        X="550"
+        Y="185">
+    <TopBar>
+        <ext:Toolbar runat="server">
+            <Items>
+                <ext:Button runat="server" Text="Toolbar" />
+            </Items>
+        </ext:Toolbar>
+    </TopBar>
+    <Buttons>
+        <ext:Button
+                ID="Button1"
+                runat="server"
+                Text="Submit"
+                Icon="Accept"
+                OnDirectClick="Button1_Click" />
+    </Buttons>
+</ext:Window>
