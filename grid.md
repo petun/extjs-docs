@@ -78,3 +78,15 @@ var prepare = function (grid, toolbar, rowIndex, record) {
     //you can return false to cancel toolbar for this record
 };
 ```
+
+Для вывода Да/Нет в колонке
+```asp
+<ext:Column ID="Column48" runat="server" Text="Ознакомлен" DataIndex="IS_READ" Flex="1" Hidden="false" Width="10">
+	<Renderer Fn="getIsReadValue" />
+</ext:Column>
+```
+```javascript
+var getIsReadValue = function (value, metadata, record) {
+	return value ? "Да" : "Нет";
+}
+```
