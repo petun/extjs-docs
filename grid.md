@@ -63,6 +63,9 @@ GrAllowedPersonStore.DataBind();
         <ext:GridCommand Icon="Delete" CommandName="Delete" Text="Delete" />
     </Commands>
     <PrepareToolbar Fn="prepare" />
+    <Listeners>
+		<Command Fn="AgreementAdmission" />
+	</Listeners>
 </ext:CommandColumn>
 ```
 
@@ -77,6 +80,23 @@ var prepare = function (grid, toolbar, rowIndex, record) {
 
     //you can return false to cancel toolbar for this record
 };
+var AgreementAdmission = function (record, commandColumn, recordIndex, a) {
+	// todo сделать tooltip на кнопке, где указать кем вы являетесь 
+    DB_Operation.AgreementAdmission(recordIndex.data.ID);
+    
+    recordIndex.data.ISREAD = "1";
+    App.GPAdmission.getView().refreshNode(App.GPAdmission.getStore().indexOfId(recordIndex.data.ID));
+}
+```
+```c#
+[DirectMethod(Namespace = "DB_Operation")]
+public void AgreementAdmission(string id)
+{
+	using (var dbCntx = new Entities())
+    {
+    	// your code here
+	}
+}
 ```
 
 Для вывода Да/Нет в колонке
