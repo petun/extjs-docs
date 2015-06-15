@@ -12,7 +12,7 @@ http://docs.sencha.com/ext-js/4-1/#!/api/Ext.form.field.VTypes
 <ext:TextField FieldLabel="Email" Vtype="email" />
 
 // очень важно!!! для пустых значений
-Vtype="listWorkCheck" ValidateBlank="True"
+Vtype="listWorkCheck" ValidateBlank="True" VtypeText="Выберите сотрудника из списка, начав вводить табельный номер или фио"
 issuedUniq
 ```
 
